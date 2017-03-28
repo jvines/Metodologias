@@ -1,4 +1,4 @@
-package cc3002_homework;
+package pokemon;
 
 public abstract class AbstractPokemon {
 
