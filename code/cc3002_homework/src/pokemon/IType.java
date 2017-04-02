@@ -1,20 +1,64 @@
 package pokemon;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Interface IType.
+ */
 public interface IType {
   
-  public void weakAgainstGrass(IType o);
+  /**
+   * Weak against grass.
+   *
+   * @param o the o
+   */
+  public void weakAgainstGrass(IPokemon o);
 
-  public void weakAgainstFire(IType o);
+  /**
+   * Weak against fire.
+   *
+   * @param o the o
+   */
+  public void weakAgainstFire(IPokemon o);
 
-  public void weakAgainstWater(IType o);
+  /**
+   * Weak against water.
+   *
+   * @param o the o
+   */
+  public void weakAgainstWater(IPokemon o);
 
-  public void weakAgainstElectric(IType o);
+  /**
+   * Weak against electric.
+   *
+   * @param o the o
+   */
+  public void weakAgainstElectric(IPokemon o);
 
-  public void weakAgainstGround(IType o);
+  /**
+   * Weak against ground.
+   *
+   * @param o the o
+   */
+  public void weakAgainstGround(IPokemon o);
 
-  public void weakAgainstPsychic(IType o);
+  /**
+   * Weak against psychic.
+   *
+   * @param o the o
+   */
+  public void weakAgainstPsychic(IPokemon o);
 
-  public void weakAgainstFighting(IType o);
+  /**
+   * Weak against fighting.
+   *
+   * @param o the o
+   */
+  public void weakAgainstFighting(IPokemon o);
 
-  public void weakAgainstNormal(IType o);
+  /**
+   * Weak against normal.
+   *
+   * @param o the o
+   */
+  public void weakAgainstNormal(IPokemon o);
 }

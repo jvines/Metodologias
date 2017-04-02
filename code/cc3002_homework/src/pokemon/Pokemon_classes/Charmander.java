@@ -5,68 +5,91 @@ import pokemon.IPokemon;
 import pokemon.IType;
 import pokemon.Type_classes.Fire;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Charmander.
+ */
 public class Charmander extends AbstractPokemon implements IType {
 
+  /**
+   * Instantiates a new charmander.
+   */
   public Charmander() {
+    name = "Charmander";
     hp = 100;
+    damage = 0;
+    move_power = 30;
     type = new Fire();
   }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see pokemon.IPokemon#battle(pokemon.IPokemon)
+   */
   @Override
   public void battle(IPokemon p) {
-    // TODO Auto-generated method stub
-    p.weakAgainstFire(this.getType());
+    if (!this.canBattle()) {
+      return;
+    }
+    p.weakAgainstFire(this);
   }
 
   @Override
-  public void weakAgainstGrass(IType o) {
+  public void weakAgainstGrass(IPokemon o) {
     // TODO Auto-generated method stub
-    System.out.println("It's not very effective.");
-
+    System.out.println("Not very effective..");
+    this.decreaseHp(o.getMovePower() - 20);
   }
 
   @Override
-  public void weakAgainstFire(IType o) {
+  public void weakAgainstFire(IPokemon o) {
     // TODO Auto-generated method stub
-    System.out.println("Normal effect.");
-
-  }
-
-  @Override
-  public void weakAgainstWater(IType o) {
-    // TODO Auto-generated method stub
-    System.out.println("It's very effective.");
+    this.decreaseHp(o.getMovePower());
 
   }
 
   @Override
-  public void weakAgainstElectric(IType o) {
+  public void weakAgainstWater(IPokemon o) {
     // TODO Auto-generated method stub
+    this.decreaseHp(o.getMovePower() * 2);
 
   }
 
   @Override
-  public void weakAgainstGround(IType o) {
+  public void weakAgainstElectric(IPokemon o) {
     // TODO Auto-generated method stub
+    this.decreaseHp(o.getMovePower());
 
   }
 
   @Override
-  public void weakAgainstPsychic(IType o) {
+  public void weakAgainstGround(IPokemon o) {
     // TODO Auto-generated method stub
+    this.decreaseHp(o.getMovePower() * 2);
 
   }
 
   @Override
-  public void weakAgainstFighting(IType o) {
+  public void weakAgainstPsychic(IPokemon o) {
     // TODO Auto-generated method stub
+    this.decreaseHp(o.getMovePower());
 
   }
 
   @Override
-  public void weakAgainstNormal(IType o) {
+  public void weakAgainstFighting(IPokemon o) {
     // TODO Auto-generated method stub
+    this.decreaseHp(o.getMovePower());
 
   }
+
+  @Override
+  public void weakAgainstNormal(IPokemon o) {
+    // TODO Auto-generated method stub
+    this.decreaseHp(o.getMovePower());
+
+  }
+
 
 }
