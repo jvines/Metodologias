@@ -8,7 +8,6 @@ public class Electric extends AbstractType {
   @Override
   public void weakAgainstGrass(IPokemon o) {
     // TODO Auto-generated method stub
-    
   }
 
   @Override

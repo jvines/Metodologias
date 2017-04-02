@@ -14,12 +14,21 @@ public class Squirtle extends AbstractPokemon implements IType {
   /**
    * Instantiates a new squirtle.
    */
-  public Squirtle() {
-    name = "Squirtle";
-    hp = 100;
+
+  public Squirtle(String name, int hp, int move_power) {
+    this.name = name;
+    this.hp = hp;
+    this.move_power = move_power;
     damage = 0;
-    move_power = 30;
     type = new Water();
+  }
+  
+  public Squirtle(String name) {
+    this(name, 130, 30);
+  }
+
+  public Squirtle() {
+    this("Squirtle", 130, 30);
   }
 
 
@@ -29,11 +38,12 @@ public class Squirtle extends AbstractPokemon implements IType {
    * @see pokemon.IPokemon#battle(pokemon.IPokemon)
    */
   @Override
-  public void battle(IPokemon p) {
+  public boolean battle(IPokemon p) {
     if (!this.canBattle()) {
-      return;
+      return false;
     }
     p.weakAgainstWater(this);
+    return true;
   }
 
 

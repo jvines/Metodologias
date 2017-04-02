@@ -5,93 +5,72 @@ import pokemon.IPokemon;
 import pokemon.IType;
 import pokemon.Type_classes.Grass;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class Bulbasaur.
- */
 public class Bulbasaur extends AbstractPokemon implements IType {
 
-  /**
-   * Instantiates a new bulbasaur.
-   */
-  public Bulbasaur() {
-    name = "Bulbasaur";
-    hp = 100;
+  public Bulbasaur(String name, int hp, int move_power) {
+    this.name = name;
+    this.hp = hp;
+    this.move_power = move_power;
     damage = 0;
-    move_power = 30;
     type = new Grass();
   }
-
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see pokemon.IPokemon#battle(pokemon.IPokemon)
-   */
-  @Override
-  public void battle(IPokemon p) {
-    if (!this.canBattle()) {
-      return;
-    }
-    p.weakAgainstGrass(this);
+  
+  public Bulbasaur(String name) {
+    this(name, 130, 30);
   }
 
+  public Bulbasaur() {
+    this("Bulbasaur", 130, 30);
+  }
+
+  @Override
+  public boolean battle(IPokemon p) {
+    if (!this.canBattle()) {
+      return false;
+    }
+    p.weakAgainstGrass(this);
+    return true;
+
+  }
 
   @Override
   public void weakAgainstGrass(IPokemon o) {
     this.decreaseHp(o.getMovePower());
-
   }
-
 
   @Override
   public void weakAgainstFire(IPokemon o) {
-    System.out.println("It's very effective!");
     this.decreaseHp(o.getMovePower() * 2);
   }
-
 
   @Override
   public void weakAgainstWater(IPokemon o) {
     this.decreaseHp(o.getMovePower() - 20);
-
   }
-
 
   @Override
   public void weakAgainstElectric(IPokemon o) {
     this.decreaseHp(o.getMovePower());
-
   }
-
 
   @Override
   public void weakAgainstGround(IPokemon o) {
     this.decreaseHp(o.getMovePower() - 20);
-
   }
-
 
   @Override
   public void weakAgainstPsychic(IPokemon o) {
     this.decreaseHp(o.getMovePower());
-
   }
-
 
   @Override
   public void weakAgainstFighting(IPokemon o) {
     this.decreaseHp(o.getMovePower());
-
   }
-
 
   @Override
   public void weakAgainstNormal(IPokemon o) {
     this.decreaseHp(o.getMovePower());
-
   }
-
-
 
 }

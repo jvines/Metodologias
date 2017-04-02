@@ -51,18 +51,13 @@ public abstract class AbstractPokemon implements IType, IPokemon {
     return name;
   }
   
+  /* (non-Javadoc)
+   * @see pokemon.IPokemon#getMovePower()
+   */
   public int getMovePower() {
     return move_power;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see pokemon.IPokemon#getType()
-   */
-  public IType getType() {
-    return type;
-  }
 
   /**
    * Decreases the pokemon's hp by adding the received damage to the damage counter.

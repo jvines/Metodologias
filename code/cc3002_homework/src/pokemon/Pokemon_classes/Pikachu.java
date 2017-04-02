@@ -2,40 +2,34 @@ package pokemon.Pokemon_classes;
 
 import pokemon.AbstractPokemon;
 import pokemon.IPokemon;
+import pokemon.IType;
 import pokemon.Type_classes.Electric;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class Pikachu.
- */
-/**
- * @author JoseIgnacio
- *
- */
-public class Pikachu extends AbstractPokemon implements IPokemon {
+public class Pikachu extends AbstractPokemon implements IType {
 
-  /**
-   * Instantiates a new pikachu.
-   */
-  public Pikachu() {
-    name = "Pikachu";
-    hp = 100;
+  public Pikachu(String name, int hp, int move_power) {
+    this.name = name;
+    this.hp = hp;
+    this.move_power = move_power;
     damage = 0;
-    move_power = 30;
     type = new Electric();
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see pokemon.IPokemon#battle(pokemon.IPokemon)
-   */
+  public Pikachu(String name) {
+    this(name, 130, 30);
+  }
+  
+  public Pikachu() {
+    this("Pikachu", 130, 30);
+  }
+
   @Override
-  public void battle(IPokemon p) {
+  public boolean battle(IPokemon p) {
     if (!this.canBattle()) {
-      return;
+      return false;
     }
     p.weakAgainstElectric(this);
+    return true;
   }
 
   @Override
@@ -50,12 +44,12 @@ public class Pikachu extends AbstractPokemon implements IPokemon {
 
   @Override
   public void weakAgainstWater(IPokemon o) {
-    this.decreaseHp(o.getMovePower() * 2);
+    this.decreaseHp(o.getMovePower());
   }
 
   @Override
   public void weakAgainstElectric(IPokemon o) {
-    this.decreaseHp(o.getMovePower());
+    this.decreaseHp(o.getMovePower() - 20);
   }
 
   @Override
@@ -77,6 +71,5 @@ public class Pikachu extends AbstractPokemon implements IPokemon {
   public void weakAgainstNormal(IPokemon o) {
     this.decreaseHp(o.getMovePower());
   }
-
 
 }

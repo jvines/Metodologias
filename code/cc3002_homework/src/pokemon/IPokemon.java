@@ -1,25 +1,28 @@
 package pokemon;
 
+
 // TODO: Auto-generated Javadoc
 /**
  * The Interface IPokemon.
+ *
+ * @author JoseIgnacio
  */
 public interface IPokemon extends IType {
   
   /**
    * Gets the hp.
    *
-   * @return the total hp of the pokemon
+   * @return the hp
    */
   public int getHp();
-  
+
   /**
    * Gets the current hp.
    *
    * @return the current hp
    */
   public int getCurrentHp();
-  
+
   /**
    * Gets the name.
    *
@@ -27,22 +30,27 @@ public interface IPokemon extends IType {
    */
   public String getName();
   
+  /**
+   * Gets the move power.
+   *
+   * @return the move power
+   */
   public int getMovePower();
 
+  
   /**
-   * Gets the type.
+   * Decrease hp.
    *
-   * @return the type
+   * @param x the x
    */
-  public IType getType();
-  
   public void decreaseHp(int x);
-  
+
   /**
    * Battle.
    *
    * @param p the p
+   * @return true, if successful
    */
-  public void battle(IPokemon p);
+  public boolean battle(IPokemon p);
   
 }
